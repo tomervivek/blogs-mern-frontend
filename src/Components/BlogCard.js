@@ -25,7 +25,7 @@ const BlogCard = ({ data }) => {
           if (user) {
             onChangeFun(data._id);
           }
-          {
+          else {
             navigate("/login");
           }
         }}
