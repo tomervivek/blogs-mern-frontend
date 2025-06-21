@@ -20,7 +20,7 @@ export default function LoginForm() {
     setLoading(true);
 
     try {
-      const res = await fetch("https://blog-mern-jzhb.onrender.com/blogs/login", {
+      const res = await fetch(process.env.REACT_APP_BASE_URL + "blogs/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

@@ -22,7 +22,7 @@ const Dashboard = () => {
 
   const getBlogs = () => {
     setLoading(true);
-    fetch("https://blog-mern-jzhb.onrender.com/blogs/all-blogs")
+    fetch(process.env.REACT_APP_BASE_URL +  "blogs/all-blogs")
       .then(response => response.json())
       .then(result => setData(result))
       .catch(error => console.log('error', error))
@@ -30,7 +30,15 @@ const Dashboard = () => {
   };
 
   const getFavBlogs = () => {
-    fetch(`https://blog-mern-jzhb.onrender.com/blogs/fav-blogs?email=${user?.email}`)
+       var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+myHeaders.append("Authorization", "Bearer " + localStorage.getItem("token"));
+var requestOptions = {
+  method: 'Get',
+    headers: myHeaders,
+  redirect: 'follow'
+};
+    fetch(`${process.env.REACT_APP_BASE_URL}blogs/fav-blogs?email=${user?.email}`,requestOptions)
       .then(response => response.json())
       .then(result => setFavData(result))
       .catch(error => console.log('error', error));

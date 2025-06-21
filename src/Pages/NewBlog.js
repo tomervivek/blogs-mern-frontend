@@ -19,8 +19,8 @@ function NewBlog() {
 const InsertBlog=()=>{
     setLoading(true)
     var myHeaders = new Headers();
-myHeaders.append("Authorization", "Token 1435a113995b2c25c2376646e271312f1873a674");
 myHeaders.append("Content-Type", "application/json");
+myHeaders.append("Authorization", "Bearer " + localStorage.getItem("token"));
 const data = {
   title: title,
   content: content,
@@ -36,7 +36,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("https://blog-mern-jzhb.onrender.com/blogs/add-new-blog", requestOptions)
+fetch(process.env.REACT_APP_BASE_URL +  "blogs/add-new-blog", requestOptions)
   .then(response => response.json())
   .then(result => {
     if(result.message==="Blog saved successfully"){

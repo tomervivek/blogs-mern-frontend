@@ -7,11 +7,8 @@ const Footer = () => {
   const Subscribe = () => {
     setLoading(true);
     var myHeaders = new Headers();
-    myHeaders.append(
-      "Authorization",
-      "Token 1435a113995b2c25c2376646e271312f1873a674"
-    );
-    myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("Content-Type", "application/json");
+myHeaders.append("Authorization", "Bearer " + localStorage.getItem("token"));
     const data = {
       email: email,
       UserId: "1234567890",
@@ -24,7 +21,7 @@ const Footer = () => {
       redirect: "follow",
     };
 
-    fetch("https://blog-mern-jzhb.onrender.com/blogs/subscribe", requestOptions)
+    fetch(process.env.REACT_APP_BASE_URL +  "blogs/subscribe", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.message === "Subscribed successfully") {

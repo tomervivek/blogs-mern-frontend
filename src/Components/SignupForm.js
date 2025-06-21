@@ -30,7 +30,7 @@ export default function SignupForm() {
     e.preventDefault();
     setSignupLoading(true);
     try {
-      const res = await fetch("https://blog-mern-jzhb.onrender.com/blogs/signup", {
+      const res = await fetch(process.env.REACT_APP_BASE_URL +  "blogs/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -61,7 +61,7 @@ export default function SignupForm() {
   const handleVerifyOtp = async () => {
     setVerifyOtpLoading(true);
     try {
-      const res = await fetch("https://blog-mern-jzhb.onrender.com/blogs/verify-otp", {
+      const res = await fetch(process.env.REACT_APP_BASE_URL + "blogs/verify-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: emailForOtp, otp }),
@@ -90,7 +90,7 @@ export default function SignupForm() {
   const handleResendOtp = async () => {
     setResendOtpLoading(true);
     try {
-      const res = await fetch("https://blog-mern-jzhb.onrender.com/blogs/signup", {
+      const res = await fetch(process.env.REACT_APP_BASE_URL +  "blogs/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

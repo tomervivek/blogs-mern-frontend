@@ -27,7 +27,7 @@ function BlogDetail() {
       redirect: "follow",
     };
 
-    fetch("https://blog-mern-jzhb.onrender.com/blogs/"+id, requestOptions)
+    fetch(process.env.REACT_APP_BASE_URL +  "blogs/"+id, requestOptions)
       .then((response) => response.json())
       .then((result) => {
        setData(result);

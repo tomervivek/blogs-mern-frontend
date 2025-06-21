@@ -26,7 +26,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("https://blog-mern-jzhb.onrender.com/blogs/all-blogs", requestOptions)
+fetch(process.env.REACT_APP_BASE_URL +  "blogs/all-blogs", requestOptions)
   .then(response => response.json())
   .then(result => {
     
