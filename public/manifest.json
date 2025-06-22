@@ -1,19 +1,34 @@
 {
   "short_name": "MindSpring",
   "name": "MindSpring Blogs",
+  "screenshots": [
+  {
+    "src": "screenshot-desktop.png",
+    "sizes": "1920x1630",
+    "type": "image/png",
+    "form_factor": "wide" 
+  },
+  {
+    "src": "screenshot-mobile.png",
+    "sizes": "532x1055",
+    "type": "image/png",
+    "form_factor": "narrow"  
+  }
+],
+
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "48x48",
       "type": "image/x-icon"
     },
     {
-      "src": "logo-1-tbg.png",
+      "src": "logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo-1-tbg.png",
+      "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
